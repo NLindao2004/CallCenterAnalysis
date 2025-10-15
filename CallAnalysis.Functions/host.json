@@ -1,0 +1,30 @@
+{
+  "version": "2.0",
+  "logging": {
+    "applicationInsights": {
+      "samplingSettings": {
+        "isEnabled": true,
+        "maxTelemetryItemsPerSecond": 20,
+        "includedTypes": "Request;Dependency;Exception;Trace"
+      }
+    },
+    "logLevel": {
+      "default": "Information",
+      "Microsoft": "Warning",
+      "Microsoft.Hosting.Lifetime": "Information",
+      "CallAnalysis": "Information"
+    }
+  },
+  "extensions": {
+    "durableTask": {
+      "hubName": "CallAnalysisHub",
+      "storageProvider": {
+        "connectionStringName": "AzureWebJobsStorage",
+        "type": "azureStorage"
+      },
+      "maxConcurrentActivityFunctions": 50,
+      "maxConcurrentOrchestratorFunctions": 5
+    }
+  },
+  "functionTimeout": "00:30:00"
+}
